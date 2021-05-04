@@ -6,11 +6,11 @@ module.exports = {
   chainWebpack: config => {
     config.resolve.alias
     .set('@', resolve('src'))
-    .set('api', resolve('@/api'))
-    .set('assets', resolve('@/assets'))
-    .set('components', resolve('@/components'))
-    .set('store', resolve('@/store'))
-    .set('views', '@/views')
+    .set('api', resolve('src/api'))
+    .set('assets', resolve('src/assets'))
+    .set('components', resolve('src/components'))
+    .set('store', resolve('src/store'))
+    .set('views', 'src/views')
     
     // 彻底懒加载
     // config.plugins.delete('prefetch')
