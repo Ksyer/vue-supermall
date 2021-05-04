@@ -33,36 +33,41 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ## 项目结构
 
 ```js
-  |- src
-    |- api // 接口
-        ajax.js
-        index.js
-    |- assets
-      |- css
-      |- img
-    |- components 
-      |- common
-      |- content
-    |- router
-        index.js
-    |- store
-        index.js
-    |- utils
-        constant.js
-    |- views
-      |- category
-      |- home
-      |- profile
-      |- shopcart
-       App.js
-       main.js
-    .browserslistrc
-    .eslintrc.js
-    .gitgnore
-    .prettierrc
-    .babel.config.js
-    package.json
-    README.md
-    vue.config.js
-    yarn.lock
++-- node_modules/                   ---yarn下载文件目录
++-- public/
+|   --- index.html                                             ---首页入口html文件
++-- src/
+|   +-- api                         ---http请求存放目录
+|   |   --- ajax.js
+|   |   --- index.js
+|   +-- assets
+|   |   +-- css
+|   |   +-- img
+|   +-- components 
+|   |   +-- common
+|   |   --- ...
+|   |   +-- content
+|   |   --- ...
+|   +-- router
+|   |   --- index.js
+|   +-- store
+|   |   --- index.js
+|   +-- utils
+|   |   --- constant.js
+|   +-- views
+|   |   +-- category
+|   |   +-- home
+|   |   +-- profile
+|   |   +-- shopcart
+|   --- App.js
+|   --- main.js
+--- .browserslistrc
+--- .eslintrc.js
+--- .gitgnore
+--- .prettierrc
+--- .babel.config.js
+--- package.json
+--- README.md
+--- vue.config.js
+--- yarn.lock
 ```
