@@ -45,9 +45,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 |   |   +-- img
 |   +-- components 
 |   |   +-- common
-|   |   --- ...
 |   |   +-- content
-|   |   --- ...
 |   +-- router
 |   |   --- index.js
 |   +-- store
