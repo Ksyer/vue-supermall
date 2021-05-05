@@ -30,7 +30,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .tabbar-item {
   flex: 1;
   height: 49px;
@@ -46,6 +46,6 @@ export default {
 }
 
 .active {
-  color: #f65169;
+  color: var(--color-tint);
 }
 </style>

@@ -6,6 +6,10 @@ const Category = () => import('../views/category/Category')
 const Shopcart = () => import('../views/shopcart/Shopcart')
 const Profile = () => import('../views/profile/Profile')
 
+/* 
+只有index.js的，才可以通过目录简写吗，index.vue的话，尝试了下，可行，但会出现bug
+*/
+
 Vue.use(VueRouter)
 
 // 防止路由组件多次点击重复渲染
