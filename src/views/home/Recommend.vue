@@ -2,8 +2,8 @@
   <div class="recommend">
     <div class="recommend-item" v-for="v in recommends" :key="v.acm">
       <a :href="v.link">
-        <img :src="v.image" alt="">
-        <div>{{v.title}}</div>
+        <img :src="v.image" alt="" />
+        <div>{{ v.title }}</div>
       </a>
     </div>
   </div>
