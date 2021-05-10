@@ -1,8 +1,8 @@
 <template>
   <Swiper>
-    <SwiperItem v-for="v in banners" :key="v.acm">
-      <a :href="v.link">
-        <img :src="v.image" alt="" />
+    <SwiperItem v-for="item in banners" :key="item.acm">
+      <a :href="item.link">
+        <img :src="item.image" alt="" />
       </a>
     </SwiperItem>
   </Swiper>
