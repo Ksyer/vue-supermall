@@ -4,16 +4,20 @@
     <navbar class="home-nav">
       <div slot="center">购物街</div>
     </navbar>
-    <!-- 轮播图 -->
-    <home-swiper :banners="banners" />
-    <!-- 推荐 -->
-    <recommend :recommends="recommends" />
-    <!-- 本周流行 -->
-    <feature-view />
-    <!-- 流行/新款/精选 -->
-    <tab-control :titles="titles" @tab-click="tabClick" />
-    <!-- 商品列表 -->
-    <goods-list :goods="showGoods" />
+    <scroll class="wrapper">
+      <div class="content">
+        <!-- 轮播图 -->
+        <home-swiper :banners="banners" />
+        <!-- 推荐 -->
+        <recommend :recommends="recommends" />
+        <!-- 本周流行 -->
+        <feature-view />
+        <!-- 流行/新款/精选 -->
+        <tab-control :titles="titles" @tab-click="tabClick" />
+        <!-- 商品列表 -->
+        <goods-list :goods="showGoods" />
+      </div>
+    </scroll>
   </div>
 </template>
 
@@ -23,6 +27,7 @@
 import Navbar from 'components/common/navbar/Navbar'
 import TabControl from 'components/content/tabControl/TabControl'
 import GoodsList from 'components/content/goods/GoodsList'
+import Scroll from 'components/common/scroll/Scroll'
 
 /* 子组件
 ---------------------------------------------------------------- */
@@ -42,7 +47,8 @@ export default {
     HomeSwiper,
     Recommend,
     FeatureView,
-    GoodsList
+    GoodsList,
+    Scroll
   },
   data() {
     return {
@@ -107,9 +113,9 @@ export default {
 
 <style scoped>
 .home {
-  padding-top: 44px;
+  position: relative;
+  height: 100vh;
 }
-
 .home-nav {
   position: fixed;
   left: 0;
@@ -118,5 +124,13 @@ export default {
   z-index: 999;
   background-color: var(--color-tint);
   color: #fff;
+}
+.home .wrapper {
+  position: absolute;
+  top: 44px;
+  bottom: 49px;
+  left: 0;
+  right: 0;
+  overflow: hidden;
 }
 </style>
