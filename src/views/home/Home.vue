@@ -142,13 +142,13 @@ export default {
 </script>
 
 <style scoped>
-/* .home {
+.home {
   position: relative;
   height: 100vh;
-} */
-.home {
-  height: 100vh;
 }
+/* .home {
+  height: 100vh;
+} */
 .home-nav {
   position: fixed;
   left: 0;
@@ -158,17 +158,17 @@ export default {
   background-color: var(--color-tint);
   color: #fff;
 }
-/* .home .wrapper {
+.wrapper {
   position: absolute;
   top: 44px;
   bottom: 49px;
   left: 0;
   right: 0;
   overflow: hidden;
-} */
-.home .wrapper {
+}
+/* .wrapper {
   height: calc(100% - 93px);
   overflow: hidden;
   margin-top: 44px;
-}
+} */
 </style>
