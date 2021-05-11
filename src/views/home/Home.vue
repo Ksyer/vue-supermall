@@ -4,7 +4,14 @@
     <navbar class="home-nav">
       <div slot="center">购物街</div>
     </navbar>
-    <scroll class="wrapper">
+    <scroll
+      class="wrapper"
+      ref="scroll"
+      :probe-type="3"
+      :pull-up-load="true"
+      @scroll="currentScroll"
+      @pullingUp="loadMore"
+    >
       <div class="content">
         <!-- 轮播图 -->
         <home-swiper :banners="banners" />
@@ -18,6 +25,7 @@
         <goods-list :goods="showGoods" />
       </div>
     </scroll>
+    <back-top @click.native="btnClick" v-show="isShow" />
   </div>
 </template>
 
@@ -28,6 +36,7 @@ import Navbar from 'components/common/navbar/Navbar'
 import TabControl from 'components/content/tabControl/TabControl'
 import GoodsList from 'components/content/goods/GoodsList'
 import Scroll from 'components/common/scroll/Scroll'
+import BackTop from 'components/content/backTop/BackTop'
 
 /* 子组件
 ---------------------------------------------------------------- */
@@ -48,7 +57,8 @@ export default {
     Recommend,
     FeatureView,
     GoodsList,
-    Scroll
+    Scroll,
+    BackTop
   },
   data() {
     return {
@@ -60,7 +70,8 @@ export default {
         new: { page: 0, list: [] },
         sell: { page: 0, list: [] }
       },
-      titleType: 'pop'
+      titleType: 'pop',
+      isShow: false
     }
   },
   methods: {
@@ -77,6 +88,8 @@ export default {
       if (success) {
         this.goods[titleType].list.push(...data.list)
         this.goods[titleType].page += 1
+
+        this.$refs.scroll.finishPullUp()
       }
     },
 
@@ -95,6 +108,23 @@ export default {
           this.titleType = 'sell'
           break
       }
+    },
+    btnClick() {
+      this.$refs.scroll.scrollTo()
+    },
+    currentScroll(position) {
+      if (position.y < -1000) {
+        this.isShow = true
+      } else {
+        this.isShow = false
+      }
+    },
+
+    /**
+     * 上拉加载更多
+     */
+    loadMore() {
+      this.getHomeGoods(this.titleType)
     }
   },
   computed: {
@@ -112,8 +142,11 @@ export default {
 </script>
 
 <style scoped>
-.home {
+/* .home {
   position: relative;
+  height: 100vh;
+} */
+.home {
   height: 100vh;
 }
 .home-nav {
@@ -125,12 +158,17 @@ export default {
   background-color: var(--color-tint);
   color: #fff;
 }
-.home .wrapper {
+/* .home .wrapper {
   position: absolute;
   top: 44px;
   bottom: 49px;
   left: 0;
   right: 0;
   overflow: hidden;
+} */
+.home .wrapper {
+  height: calc(100% - 93px);
+  overflow: hidden;
+  margin-top: 44px;
 }
 </style>
